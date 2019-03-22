@@ -92,6 +92,11 @@ static UIImage  *_yeeRedDotImage(CGFloat redDotRadius,UIColor  *redDotColor , CG
         default:
         {
             [self.m_pBadgeLable sizeToFit];
+            if (self.m_pBadgeLable.frame.size.width <= 10) {
+                CGRect labelFrame = self.m_pBadgeLable.frame;
+                labelFrame.size.width = 12;
+                [self.m_pBadgeLable setFrame:labelFrame];
+            }
             self.m_pBadgeLable.hidden=NO;
             self.m_pBadgeImageView.image = _yeeRedDotImage(self.m_pBadgeLable.frame.size.height, _redDotColor,self.m_pBadgeLable.frame.size);
         }
